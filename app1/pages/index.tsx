@@ -5,10 +5,7 @@ import dynamic from 'next/dynamic';
 
 // const App2Message = (await import('app2/app2Message')).App2Message;
 
-const App2Message = dynamic(
-  () => import('app2/app2Message').then((mod) => mod.App2Message),
-  { ssr: false }
-);
+const App2Message = dynamic(() => import('next2/app2Message'), { ssr: false });
 
 export default function Home() {
   return (
@@ -21,7 +18,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <p>Hello from app 1!</p>
-        {/* <App2Message /> */}
+        <App2Message />
       </main>
     </>
   );
