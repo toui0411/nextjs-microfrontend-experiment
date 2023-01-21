@@ -6,7 +6,7 @@ const nextConfig = {
     config.plugins.push(
       new options.webpack.container.ModuleFederationPlugin({
         name: 'app2',
-        filename: 'remoteEntry_app2.js',
+        filename: 'static/chunks/remoteEntry_app2.js',
         remoteType: 'var',
         exposes: {
           './app2Message': './components/App2Message',
