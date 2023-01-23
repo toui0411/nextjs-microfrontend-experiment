@@ -20,5 +20,9 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.4"
+  },
+  "devDependencies": {
+    "dts-loader": "^0.1.8",
+    "tar-webpack-plugin": "^0.1.1"
   }
 }

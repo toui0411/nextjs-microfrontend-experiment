@@ -1,9 +1,14 @@
-import styles from './styles.module.css';
+import { FunctionComponent } from "react";
+import styles from "./styles.module.css";
 
-const App2Message = () => {
+interface App2MessageProps {
+  message: string;
+}
+
+const App2Message: FunctionComponent<App2MessageProps> = ({ message }) => {
   return (
     <section className={styles.container}>
-      <p>Hello from App 2!</p>
+      <p>{message} from App 2!</p>
     </section>
   );
 };

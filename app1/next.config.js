@@ -1,4 +1,5 @@
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
+const WebpackRemoteTypesPlugin = require('webpack-remote-types-plugin').default;
 
 /** @type {import('next').NextConfig} */
 const path = require('path');
@@ -17,6 +18,15 @@ const nextConfig = {
           }/remoteEntry.js`,
         },
       })
+    );
+    config.plugins.push(
+      new WebpackRemoteTypesPlugin({
+        remotes: {
+          remote: 'next2@http://localhost:3001/',
+        },
+        outputDir: 'node_modules/@types', // supports [name] as the remote name
+        remoteFileName: 'next2-dts.tgz', // default filename is [name]-dts.tgz where [name] is the remote name, for example, `app` with the above setup
+      }),
     );
 
     return config;
